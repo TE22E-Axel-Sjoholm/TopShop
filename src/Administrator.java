@@ -1,6 +1,5 @@
 import java.util.*;
 
-
 class Administrator extends User {
     public Administrator(String name, String email, int identificationNumber, String username, String password) {
         super(name, email, identificationNumber, username, password);
