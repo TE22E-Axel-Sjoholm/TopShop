@@ -1,6 +1,7 @@
+import java.io.Serializable;
 import java.util.*;
 
-class Person {
+class Person implements Serializable {
     protected String name;
     protected String email;
     protected int identificationNumber;

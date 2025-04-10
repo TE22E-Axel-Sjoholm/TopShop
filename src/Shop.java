@@ -50,5 +50,5 @@ class Shop {
 
     public void addProduct(Item item) {}
 
-    public void createAdmin(Administrator admin) {}
+    public void createAccount() {}
 }
