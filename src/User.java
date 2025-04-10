@@ -9,6 +9,7 @@ abstract class User extends Person {
         super(name, email, identificationNumber);
         this.username = username;
         this.password = password;
+        generateUserId();
     }
 
     public String getPassword() {
