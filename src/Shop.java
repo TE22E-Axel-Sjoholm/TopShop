@@ -29,8 +29,8 @@ class Shop {
         items.add(new Item("Kaff43ekopp", 89));
 
 
-        users.add(new Customer("Sigma", "Axelsjoh@gmail.com",123123,"1","1"));
-        users.add(new Customer("Sigma", "Axelsjoh123@gmail.com",123123,"2","2"));
+        users.add(new Customer("Axel", "Axelsjoh@gmail.com",123123,"1","1"));
+        users.add(new Customer("Ostis", "Anton@fear.se",123123,"2","2"));
     }
 
     public void addItem(Item item) {
