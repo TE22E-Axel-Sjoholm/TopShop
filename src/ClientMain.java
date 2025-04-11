@@ -3,8 +3,8 @@ import java.net.*;
 import java.util.*;
 
 class ClientMain {
+    public static Scanner input = new Scanner(System.in);
     public static void main(String[] args) throws IOException, ClassNotFoundException {
-        Scanner input = new Scanner(System.in);
         User user;
         System.out.println("Welcome to TopShop");
         int choice = 0;
@@ -31,10 +31,10 @@ class ClientMain {
                     user = (User) in.readObject();
                     if (user == null){
                         System.out.println("Wrong password or username");
-                        continue;
+                        continue outer;
                     } else {
                         user.showMenu();
-                        break;
+                        break outer;
                     }
                 }
             } else if(choice == 2){
@@ -62,12 +62,11 @@ class ClientMain {
                     String password = input.nextLine();
                     Socket socket = new Socket("localhost", 12222);
                     ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
-                    ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
                     out.writeObject("2" + name + "," + email + "," + idnr + "," + username + "," + password);
                     System.out.println("Account created.\nReturning to main menu...");
                     continue outer;
                 }
-            } else{
+            } else {
                 System.out.println("Not a choice");
             }
             break;

@@ -7,10 +7,13 @@ class Item {
     private double price;
     private int stock;
 
-    public Item(int id, String name, double price) {
-        this.id = id;
+    public Item(String name, double price) {
         this.name = name;
         this.price = price;
+        genId();
+    }
+    public void genId() {
+        id = ServerMain.shop.getItems().size();
     }
 
     public int getId() {

@@ -9,6 +9,18 @@ class Customer extends User {
 
     @Override
     public void showMenu() {
-        System.out.println("kund meny fixar sen svär på gud!");
+        while(true) {
+            System.out.println("What would you like to do?");
+            System.out.println("1. Browse products");
+            System.out.println("2. View Shopping cart");
+            int choice = ClientMain.input.nextInt();
+            if (choice == 1){
+                for (Item i: ServerMain.shop.getItems()){
+                    System.out.println(i.getId() + ". " + i.getName() + " - $" + i.getPrice());
+                }
+            } else if (choice == 2) {
+
+            }
+        }
     }
 }

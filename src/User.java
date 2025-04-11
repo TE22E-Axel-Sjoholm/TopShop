@@ -9,7 +9,6 @@ abstract class User extends Person {
         super(name, email, identificationNumber);
         this.username = username;
         this.password = password;
-        userID = generateUserId();
     }
 
     public String getPassword() {
@@ -20,8 +19,5 @@ abstract class User extends Person {
         return username;
     }
 
-    private int generateUserId(){
-        return ServerMain.shop.getUsers().size();
-    }
     public abstract void showMenu();
 }

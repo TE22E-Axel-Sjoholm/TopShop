@@ -1,5 +1,6 @@
 import java.util.*;
 
+
 class Shop {
     private ArrayList<Item> items;
     private ArrayList<User> users;
@@ -7,6 +8,13 @@ class Shop {
     public Shop() {
         items = new ArrayList<>();
         users = new ArrayList<>();
+
+        items.add(new Item("Dammsugare", 10));
+
+        items.add(new Item("Kaffekopp", 8));
+
+        users.add(new Customer("Sigma", "Axelsjoh@gmail.com",123123,"1","1"));
+        users.add(new Customer("Sigma", "Axelsjoh123@gmail.com",123123,"2","2"));
     }
 
     public void addItem(Item item) {
