@@ -30,7 +30,7 @@ class Shop {
 
 
         users.add(new Customer("Axel", "Axelsjoh@gmail.com",123123,"1","1"));
-        users.add(new Customer("Ostis", "Anton@fear.se",123123,"2","2"));
+        users.add(new Customer("Ostis", "Anton@fear.se",123223,"2","2"));
     }
 
     public void addItem(Item item) {
@@ -58,9 +58,11 @@ class Shop {
     }
 
     public User validateLogin(String username, String password) {
-        for (User u : users)
-            if (u.getUsername().equalsIgnoreCase(username) && u.getPassword().equals(password))
+        for (User u : users) {
+            if (u.getUsername().equalsIgnoreCase(username) && u.getPassword().equals(password)) {
                 return u;
+            }
+        }
         return null;
     }
 

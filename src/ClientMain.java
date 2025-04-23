@@ -49,7 +49,7 @@ class ClientMain {
                         System.out.println("IDnr:");
                         idnr = input.nextLine();
                         try {
-                            int i = Integer.parseInt(idnr);
+                            Integer.parseInt(idnr);
                         } catch (Exception e) {
                             System.out.println("IDnr has to be a number");
                             continue;

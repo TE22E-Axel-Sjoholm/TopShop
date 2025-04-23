@@ -36,7 +36,7 @@ class Customer extends User {
                             System.out.println(i + 1 + ". " + I.getName() + " - $" + I.getPrice());
                         }
                     }
-                    System.out.print("1. <-- Previous page, 2: Next page -->, 3: Add item to cart, 4: Back");
+                    System.out.print("1: <-- Previous page, 2: Next page -->, 3: Add item to cart, 4: Back");
                     try {
                         choice = ClientMain.input.nextInt();
                         if (choice > 4 || choice < 1) {
@@ -79,9 +79,58 @@ class Customer extends User {
                         continue outer;
                     }
                 }
-
             } else if (choice == 2) {
-
+                while(true) {
+                    double total = 0;
+                    for (Item i: shoppingCart){
+                        System.out.println(shoppingCart.indexOf(i)+1 + ". " + i.getName() + " - " + i.getPrice());
+                        total += i.getPrice();
+                    }
+                    System.out.println("Total price is $" + total);
+                    System.out.println("1: Purchase all, 2: Remove product, 3: Back ");
+                    try {
+                        choice = ClientMain.input.nextInt();
+                        if (choice < 1 || choice > 3) {
+                            System.out.println("That is not an option");
+                            continue;
+                        }
+                    } catch (Exception e) {
+                        System.out.println("That is not an option");
+                        continue;
+                    }
+                    if(choice == 1){
+                        System.out.println("$" + total + " has been withdrawn from you account");
+                        if(shoppingCart.isEmpty()){
+                            System.out.println("Your shopping cart is empty");
+                        } else {
+                            for (Item i : shoppingCart) {
+                                ServerMain.shop.removeItem(i);
+                            }
+                            shoppingCart.clear();
+                        }
+                    } else if (choice == 2) {
+                        while (true){
+                            System.out.println("Which item do you want to remove?");
+                            try {
+                                choice = ClientMain.input.nextInt();
+                                if (choice+1 > shoppingCart.size() ||choice < 1) {
+                                    System.out.println("That is not an option");
+                                    continue;
+                                }
+                            } catch (Exception e) {
+                                System.out.println("That is not an option");
+                                continue;
+                            }
+                            shoppingCart.remove(choice-1);
+                            break;
+                        }
+                    } else {
+                        continue outer;
+                    }
+                }
+                
+            } else{
+                System.out.println("123");
             }
         }
     }
