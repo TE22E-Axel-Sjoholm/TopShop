@@ -13,13 +13,11 @@ class Customer extends User {
     public void showMenu() {
         outer:
         while (true) {
-            System.out.println("What would you like to do?");
-            System.out.println("1. Browse products");
-            System.out.println("2. View Shopping cart");
+            System.out.println("What would you like to do?\n1. Browse products\n2. View Shopping cart\n3. Log out");
             int choice;
             try {
                 choice = ClientMain.input.nextInt();
-                if (choice != 1 && choice != 2) {
+                if (choice != 1 && choice != 2 && choice != 3) {
                     System.out.println("That is not an option");
                     continue;
                 }
@@ -36,7 +34,7 @@ class Customer extends User {
                             System.out.println(i + 1 + ". " + I.getName() + " - $" + I.getPrice());
                         }
                     }
-                    System.out.print("1: <-- Previous page, 2: Next page -->, 3: Add item to cart, 4: Back");
+                    System.out.println("1: <-- Previous page, 2: Next page -->, 3: Add item to cart, 4: Back");
                     try {
                         choice = ClientMain.input.nextInt();
                         if (choice > 4 || choice < 1) {
@@ -128,9 +126,8 @@ class Customer extends User {
                         continue outer;
                     }
                 }
-                
-            } else{
-                System.out.println("123");
+            } else if (choice == 3) {
+                break;
             }
         }
     }

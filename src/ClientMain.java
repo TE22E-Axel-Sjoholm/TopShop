@@ -69,7 +69,6 @@ class ClientMain {
             } else {
                 System.out.println("Not a choice");
             }
-            break;
         }
     }
 }
